@@ -1,7 +1,7 @@
 import SteamAPI from "steamapi";
 
-const creds = require('../../creds.json')
+require('dotenv').config();
 
 const steam = new SteamAPI(creds["steam-api-token"])
 
-console.log(creds["steam-api-token"])
+console.log(process.env.STEAM_KEY)
