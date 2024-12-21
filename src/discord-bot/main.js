@@ -15,16 +15,17 @@ client.once('ready', (c) => {
     console.log(`${c.user.tag} is online!`);
 });
 
-client.on('messageCreate', (message) => {
-    console.log(message.author.globalName + ': ' + message.content);
+client.on('interactionCreate', (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
 
-    if (message.author.bot || !message.content.startsWith('-')) {
-        return;
-    }
+    console.log(interaction.commandName);
 
-    switch(message.content) {
-        case '-ping':
-            message.reply('pong!');
+    switch(interaction.commandName) {
+        case 'ping':
+            interaction.reply('pong!');
+            break;
+        default:
+            iteraction.reply('Invalid Command!');
     }
 });
 
