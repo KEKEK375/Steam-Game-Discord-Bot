@@ -24,6 +24,14 @@ client.on('interactionCreate', (interaction) => {
         case 'ping':
             interaction.reply('pong!');
             break;
+            case 'linksteamid':
+                const steam_id = interaction.options.get('steam-id');
+                console.log(steam_id);
+                break;
+            case 'example':
+                const option = interaction.options.get('option1');
+                console.log(option);
+                break;
         default:
             iteraction.reply('Invalid Command!');
     }

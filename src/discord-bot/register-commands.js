@@ -1,10 +1,44 @@
 require('dotenv').config();
-const { REST, Routes } = require('discord.js');
+const { REST, Routes, Application, ApplicationCommand, ApplicationCommandOptionBase, ApplicationCommandOptionType } = require('discord.js');
 
 const commands = [
     {
+        name: 'example',
+        description: 'example command',
+        options: [
+            {
+                name: 'option1',
+                description: 'first option',
+                type: ApplicationCommandOptionType.Number,
+                choices: [
+                    {
+                        name: 'first-choice',
+                        value: 1,
+                    },
+                    {
+                        name: 'second-choice',
+                        value: 2,
+                    },
+                ],
+                required: true,
+            },
+        ]
+    },
+    {
         name: 'ping',
         description: 'Replies with pong!',
+    },
+    {
+        name: 'linksteamid',
+        description: 'Links user to steam_id',
+        options: [
+            {
+                name: 'steam-id',
+                description: 'Your steam id',
+                type: ApplicationCommandOptionType.Number,
+                required: true,
+            },
+        ]
     },
 ];
 
